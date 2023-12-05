@@ -10,13 +10,13 @@
 
 
 
-string[] CreateMassive()
+string[] CreateMassive() //Создание массива строк выбранной длинны
 {
     Console.WriteLine("Введите длину массива (целое число больше 0):");
     string result = Console.ReadLine();
     if (int.TryParse(result, out int length)) { }
     if (length > 0)
-    { // здесь нудна проверка на число
+    {
         string[] array = new string[length];
         for (int i = 0; i < array.Length; i++)
         {
@@ -28,7 +28,7 @@ string[] CreateMassive()
     }
     else { return CreateMassive(); }
 }
-string[] NewMassive(string[] array)
+string[] NewMassive(string[] array) // Создание массива со строками длинной не более 3
 {
     int count = 0;
     for (int i = 0; i < array.Length; i++)
@@ -47,7 +47,7 @@ string[] NewMassive(string[] array)
     }
     return newArray;
 }
-void PrintMassive(int temp)
+void PrintMassive(int temp) // печать нового массива
 {
     if (temp == 1 || temp == 2)
     {
