@@ -10,27 +10,51 @@
 
 
 
-string[] CreateMassive() 
+string[] CreateMassive()
 {
     Console.WriteLine("Введите длину массива:");
     int length = int.Parse(Console.ReadLine());
     string[] array = new string[length];
     for (int i = 0; i < array.Length; i++)
     {
-        Console.WriteLine($"Введите элемент массива {i+1}");
+        Console.WriteLine($"Введите элемент массива {i + 1}");
         array[i] = Console.ReadLine();
     }
     Console.WriteLine($"Вы ввели массив: \t[{string.Join(", ", array)}]");
-    return array; 
+    return array;
 }
+string[] NewMassive(string[] array)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length < 4) { count++; }
+    }
+    string[] newArray = new string[count];
+    int posinionNewArray = 0;
+    for (int j = 0; j < array.Length; j++)
+    {
+        if (array[j].Length < 4)
+        {
+            newArray[posinionNewArray] = array[j];
+            posinionNewArray++;
+        }
+    }
+    return newArray;
+}
+
 
 Console.WriteLine("Введите '0', если хотите использовать массив по умолчанию.");
 Console.WriteLine("Введите '1', если хотите задать массив самостоятельно.");
 int choice = int.Parse(Console.ReadLine());
-string[] defoultArray = {"Hello", "2", "world", ":-)"};
-if (choice == 0){}
-     // программа выполняется с defoultArray
+string[] defoultArray = { "Hello", "2", "world", ":-)" };
+if (choice == 0)
+{
+    Console.WriteLine($"Будет использован массив по \"по умолчанию\": \t[{string.Join(", ", defoultArray)}]");
+    Console.WriteLine($"Ваш новый массив: \t[{string.Join(", ", NewMassive(defoultArray))}]");
+}
 else
 {
-   CreateMassive(); // выполняется генерация массива и выполняется программа с сгенерированным массивом
+    string[] usersArray = CreateMassive();
+    Console.WriteLine($"Ваш новый массив: \t[{string.Join(", ", NewMassive(usersArray))}]");
 }
