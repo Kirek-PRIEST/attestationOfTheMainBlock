@@ -31,7 +31,7 @@ string[] CreateMassive() //Создание массива строк выбра
 string[] NewMassive(string[] array) // Создание массива со строками длинной не более 3
 {
     int count = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.Length; i++) // счётчик количества элементов массива с длинной мене 4-х символов
     {
         if (array[i].Length < 4) { count++; }
     }
@@ -63,7 +63,7 @@ void PrintMassive(int temp) // печать нового массива
             Console.WriteLine($"Ваш новый массив: \t[{string.Join(", ", NewMassive(usersArray))}]");
         }
     }
-    else { Console.WriteLine("Сделайте ввыбор - '1', или '2'. Попробуйте снова, когда определитесь."); }
+    else { Console.WriteLine("Сделайте ввыбор - '1', или '2'. Запустите программу снова, когда определитесь."); }
 }
 
 Console.WriteLine("Введите '1', если хотите использовать массив по умолчанию.");
